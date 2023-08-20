@@ -10,14 +10,16 @@ export const AlumniDestinations = () => {
       direction="vertical"
       alignItems="center"
       gap="4rem"
-      style={{ backgroundColor: Colors.Blue.DarkBloo, padding: "10rem 0 15rem" }}
+      style={{
+        backgroundColor: Colors.Blue.DarkBloo,
+        padding: "10rem 0 15rem",
+      }}
     >
-      <Stack direction="vertical">
-
-      <Heading style={{ color: "white" }}>ALUMNI DESTINATIONS</Heading>
-      <Subheading2 style={{ color: Colors.Blue.Periwinkle }}>
-        Where our alumni have continued their journeys...
-      </Subheading2>
+      <Stack direction="vertical" style={{ padding: "0 2rem" }}>
+        <Heading style={{ color: "white" }}>ALUMNI DESTINATIONS</Heading>
+        <Subheading2 style={{ color: Colors.Blue.Periwinkle }}>
+          Where our alumni have continued their journeys...
+        </Subheading2>
       </Stack>
       <Marquee>
         <Stack>
@@ -30,7 +32,7 @@ export const AlumniDestinations = () => {
               height={136}
             />
           ))}
-          <div style={{width: "0.2rem"}}/>
+          <div style={{ width: "0.2rem" }} />
         </Stack>
       </Marquee>
       <Marquee direction="right">
@@ -44,7 +46,7 @@ export const AlumniDestinations = () => {
               height={136}
             />
           ))}
-          <div style={{width: "0.2rem"}}/>
+          <div style={{ width: "0.2rem" }} />
         </Stack>
       </Marquee>
     </Stack>

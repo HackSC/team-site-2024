@@ -1,11 +1,13 @@
 import {
   BodyText,
+  BodyTextLarge,
   Colors,
   Heading,
   Stack,
   Subheading2,
 } from "@hacksc/sctw-ui-kit";
 import * as Tabs from "@radix-ui/react-tabs";
+import { useState } from "react";
 
 interface Member {
   name: string;
@@ -19,6 +21,7 @@ export const teams: {
   description: string;
   backgroundColor: string;
   borderColor: string;
+  tabChosenColor: string;
   lead?: Member;
   members?: Record<Role, Member[]>;
 }[] = [
@@ -29,6 +32,7 @@ export const teams: {
     `,
     backgroundColor: Colors.Red.DonatedBlood,
     borderColor: Colors.Red.Redward,
+    tabChosenColor: Colors.Red.Rash,
   },
   {
     teamName: "Product",
@@ -37,6 +41,7 @@ export const teams: {
     `,
     backgroundColor: Colors.Blue.DarkBloo,
     borderColor: Colors.Blue.Bloo,
+    tabChosenColor: Colors.Blue.Periwinkle,
   },
   {
     teamName: "Hacker Experience",
@@ -45,6 +50,7 @@ export const teams: {
     `,
     backgroundColor: Colors.Yellow.ArthurSweater,
     borderColor: Colors.Yellow.BabyFood,
+    tabChosenColor: Colors.Neutral.Bagel,
   },
   {
     teamName: "Operations",
@@ -53,6 +59,7 @@ export const teams: {
     `,
     backgroundColor: Colors.Red.DonatedBlood,
     borderColor: Colors.Red.Redward,
+    tabChosenColor: Colors.Red.Rash,
   },
   {
     teamName: "Marketing",
@@ -62,6 +69,7 @@ Marketing wants to share with the world what HackSC is all about!
     `,
     backgroundColor: Colors.Yellow.ArthurSweater,
     borderColor: Colors.Yellow.BabyFood,
+    tabChosenColor: Colors.Neutral.Bagel,
   },
   {
     teamName: "Partnerships",
@@ -70,10 +78,14 @@ The Partnerships Team provides funding for our hackathon, reaching out to potent
     `,
     backgroundColor: Colors.Blue.DarkBloo,
     borderColor: Colors.Blue.Bloo,
+    tabChosenColor: Colors.Blue.Periwinkle,
   },
 ];
 
 export const Teams = () => {
+  const defaultVal = teams[0].teamName;
+  const [tabval, setTabval] = useState(defaultVal);
+
   return (
     <Stack
       direction="vertical"
@@ -82,13 +94,34 @@ export const Teams = () => {
       style={{ padding: "5rem" }}
     >
       <Heading>TEAMS</Heading>
-      <Tabs.Root defaultValue="Engineering">
+      <Tabs.Root
+        defaultValue={defaultVal}
+        value={tabval}
+        onValueChange={(val) => setTabval(val)}
+      >
         <Stack wrap="wrap">
           <Tabs.List style={{ flex: 1 }}>
             <Stack direction="vertical" alignItems="start" wrap="wrap">
               {teams.map((el) => (
-                <Tabs.Trigger value={el.teamName} key={el.teamName}>
-                  {el.teamName}
+                <Tabs.Trigger
+                  value={el.teamName}
+                  key={el.teamName}
+                  style={{
+                    border: "none",
+                    cursor: "pointer",
+                    borderRadius: "10px",
+                    backgroundColor:
+                      tabval === el.teamName
+                        ? el.tabChosenColor
+                        : "transparent",
+                    color: el.backgroundColor,
+                  }}
+                >
+                  <Subheading2
+                    style={{ lineHeight: 0.5, width: "max-content" }}
+                  >
+                    {el.teamName}
+                  </Subheading2>
                 </Tabs.Trigger>
               ))}
             </Stack>
@@ -104,8 +137,8 @@ export const Teams = () => {
                   padding: "4rem",
                   border: `6px solid ${el.borderColor}`,
                   borderRadius: "10px",
-                  minWidth: "600px",
                   backgroundColor: el.backgroundColor,
+                  maxWidth: "50rem",
                 }}
                 justifyContent="center"
                 alignItems="center"

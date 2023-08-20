@@ -1,4 +1,5 @@
 import {
+  ASSET_URLS,
   BodyText,
   BodyTextLarge,
   Colors,
@@ -8,6 +9,7 @@ import {
 } from "@hacksc/sctw-ui-kit";
 import { FAQAccordion } from "../components/accordion";
 import styled from "styled-components";
+import Image from "next/image";
 
 const contents: { title: string; content: string }[] = [
   {
@@ -38,7 +40,7 @@ export const FAQ = () => {
       direction="vertical"
       alignItems="start"
       gap="2rem"
-      style={{ backgroundColor: Colors.Blue.DarkBloo, padding: "7rem 0" }}
+      style={{ backgroundColor: "white", padding: "7rem 3rem 0" }}
     >
       <Heading>FREQUENTLY ASKED QUESTIONS</Heading>
       <QnAContainer>
@@ -50,6 +52,15 @@ export const FAQ = () => {
           />
         ))}
       </QnAContainer>
+
+      <MountainContainer>
+        <Image
+          src={ASSET_URLS.MOUNTAINS}
+          fill
+          objectFit="contain"
+          alt="Graphic of mountains"
+        />
+      </MountainContainer>
     </Stack>
   );
 };
@@ -58,6 +69,18 @@ const QnAContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-justify-content: center;
-align-items: center;
+`;
+
+const MountainContainer = styled.div`
+  position: relative;
+  width: 1049px;
+  height: 515px;
+  @media (max-width: 1200px) {
+    width: 850px;
+    height: 400px;
+  }
+  @media (max-width: 900px) {
+    width: 460px;
+    height: 200px;
+  }
 `;

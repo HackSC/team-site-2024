@@ -17,7 +17,9 @@ export const Alumni = () => {
       gap="4rem"
       style={{ backgroundColor: Colors.Blue.DarkBloo, padding: "7rem 0" }}
     >
-      <Heading style={{ color: "white" }}>ALUMNI TESTIMONIALS</Heading>
+      <Heading style={{ color: "white", padding: "0 2rem" }}>
+        ALUMNI TESTIMONIALS
+      </Heading>
       <Stack>
         {alumni.map((el) => (
           <Stack style={{ width: "800px", height: "400px" }} key={el.name}>

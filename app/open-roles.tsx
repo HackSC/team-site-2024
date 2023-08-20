@@ -9,7 +9,7 @@ export const OpenRoles = () => {
   const openRoles: TOpenRoles = {};
   return (
     <Stack
-    id="openroles"
+      id="openroles"
       direction="vertical"
       alignItems="start"
       gap="4rem"

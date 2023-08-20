@@ -8,6 +8,7 @@ import { OpenRoles } from "./open-roles";
 import { Alumni } from "./alumni";
 import { AlumniDestinations } from "./alumni-destinations";
 import { FAQ } from "./faq";
+import { Footer } from "./footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Alumni />
       <AlumniDestinations />
       <FAQ />
+      <Footer />
     </main>
   );
 }

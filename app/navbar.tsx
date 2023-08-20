@@ -14,15 +14,20 @@ export const Navbar = () => {
   const teampageLink = "https://team.hacksc.com";
 
   return (
-    <Stack justifyContent="space-between" style={{padding: "2rem 5rem"}}>
+    <Stack
+      justifyContent="space-between"
+      wrap="wrap"
+      style={{ padding: "2rem 5rem" }}
+    >
       <Stack direction="horizontal" alignItems="center" gap="0.5rem">
         <Image
           src={ASSET_URLS.HIBISCUS_LOGO_2024}
           width={52}
           height={43}
           alt="Hibiscus Logo"
+          priority
         />
-        <Subheading>HackSC</Subheading>
+        <NavigationText>HackSC</NavigationText>
       </Stack>
       <Stack>
         <Link href={homepageLink} style={{ all: "unset" }} target="_blank">

@@ -1,19 +1,27 @@
 import { BodyTextLarge, Colors, Stack, Subheading } from "@hacksc/sctw-ui-kit";
+import Image from "next/image";
+import styled from "styled-components";
 
 export const Hero2 = () => {
   return (
-    <Stack
-      alignItems="center"
-      justifyContent="center"
-      style={{ padding: "6rem", backgroundColor: Colors.Neutral.PaleBagel }}
-    >
+    <Container alignItems="center" justifyContent="center">
+      <Image
+        src="/squiggles.svg"
+        fill
+        alt="Background"
+        style={{ opacity: 0.9, objectFit: "contain" }}
+      />
       <Stack
         direction="vertical"
         alignItems="center"
-        style={{ width: "673px" }}
+        style={{
+          width: "673px",
+          position: "relative",
+          zIndex: 1,
+        }}
       >
         <Subheading style={{ textAlign: "center" }}>
-          JOIN THE TEAM BEHIND USC’S LARGEST INNOVATION EVENTS!
+          JOIN THE TEAM BEHIND USC{"'"}S LARGEST INNOVATION EVENTS!
         </Subheading>
         <BodyTextLarge style={{ textAlign: "center" }}>
           At HackSC, you will get a chance to collaborate in a team of driven
@@ -23,6 +31,13 @@ export const Hero2 = () => {
           want you on our team!
         </BodyTextLarge>
       </Stack>
-    </Stack>
+    </Container>
   );
 };
+
+const Container = styled(Stack)({
+  position: "relative",
+  padding: "20rem 5rem",
+  backgroundImage: "url(/background-wavy.svg)",
+  backgroundSize: "cover",
+});
