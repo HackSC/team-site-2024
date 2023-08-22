@@ -92,8 +92,8 @@ export const Footer = () => (
       </BodyTextSmall>
       <BodyTextSmall style={{ fontWeight: 300, color: "white" }}>
         Want to talk about sponsorship? Let us know at{" "}
-        <a href="mailto:sponsorship@hacksc.com" style={{ color: "white" }}>
-          <span>sponsorship@hacksc.com!</span>
+        <a href="mailto:partnerships@hacksc.com" style={{ color: "white" }}>
+          <span>partnerships@hacksc.com!</span>
         </a>
       </BodyTextSmall>
     </Stack>
