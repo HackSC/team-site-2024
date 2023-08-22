@@ -21,7 +21,7 @@ export const AlumniDestinations = () => {
           Where our alumni have continued their journeys...
         </Subheading2>
       </Stack>
-      <Marquee>
+      <Marquee autoFill>
         <Stack>
           {Array.from({ length: companiesLength }, (_, i) => i + 1).map((i) => (
             <Image
@@ -35,7 +35,7 @@ export const AlumniDestinations = () => {
           <div style={{ width: "0.2rem" }} />
         </Stack>
       </Marquee>
-      <Marquee direction="right">
+      <Marquee direction="right" autoFill>
         <Stack>
           {Array.from({ length: companiesLength }, (_, i) => i + 1).map((i) => (
             <Image

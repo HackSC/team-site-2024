@@ -47,10 +47,16 @@ export const Hero = () => {
       </Stack>
       <Image
         src={ASSET_URLS.BEACH_HOUSE}
-        width={700}
-        height={600}
+        width={0}
+        height={0}
         alt="Graphics of a beach house"
         priority
+        style={{
+          maxHeight: "600px",
+          maxWidth: "700px",
+          height: "100%",
+          width: "100%",
+        }}
       />
     </Stack>
   );
