@@ -30,12 +30,12 @@ export const Navbar = () => {
         <NavigationText>HackSC</NavigationText>
       </Stack>
       <Stack>
-        <Link href={homepageLink} style={{ all: "unset" }} target="_blank">
+        <Link href={homepageLink} style={{ all: "unset" }}>
           <Button variant="link" color="black">
             <NavigationText>Overview</NavigationText>
           </Button>
         </Link>
-        <Link href={homepageLink}>
+        <Link href={teampageLink}>
           <Button variant="link" color="red">
             <NavigationText>Team</NavigationText>
           </Button>
