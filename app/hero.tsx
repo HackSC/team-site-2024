@@ -16,7 +16,7 @@ export const Hero = () => {
       wrap="wrap"
       justifyContent="center"
       alignItems="start"
-      style={{ padding: "2rem 5rem 0" }}
+      style={{ padding: "2rem 3rem 0" }}
     >
       <Stack
         direction="vertical"

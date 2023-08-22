@@ -89,7 +89,7 @@ export const Teams = () => {
   return (
     <Stack
       direction="vertical"
-      alignItems="start"
+      justifyContent="center"
       gap="4rem"
       style={{ padding: "5rem" }}
     >
@@ -99,8 +99,8 @@ export const Teams = () => {
         value={tabval}
         onValueChange={(val) => setTabval(val)}
       >
-        <Stack wrap="wrap">
-          <Tabs.List style={{ flex: 1 }}>
+        <Stack wrap="wrap" gap="2rem">
+          <Tabs.List>
             <Stack direction="vertical" alignItems="start" wrap="wrap">
               {teams.map((el) => (
                 <Tabs.Trigger
@@ -127,18 +127,14 @@ export const Teams = () => {
             </Stack>
           </Tabs.List>
           {teams.map((el) => (
-            <Tabs.Content
-              value={el.teamName}
-              key={el.teamName}
-              style={{ flex: 1 }}
-            >
+            <Tabs.Content value={el.teamName} key={el.teamName}>
               <Stack
                 style={{
                   padding: "4rem",
                   border: `6px solid ${el.borderColor}`,
                   borderRadius: "10px",
                   backgroundColor: el.backgroundColor,
-                  maxWidth: "50rem",
+                  maxWidth: "30rem",
                 }}
                 justifyContent="center"
                 alignItems="center"
