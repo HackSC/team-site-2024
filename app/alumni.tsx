@@ -67,7 +67,7 @@ export const Alumni = () => {
         ALUMNI TESTIMONIALS
       </CustomHeadingResponsive>
       <Marquee>
-        <Stack gap="2rem">
+        <Stack gap="2rem" alignItems="stretch">
           {alumni.map((el) => (
             <Card key={el.name}>
               <Image
@@ -78,16 +78,7 @@ export const Alumni = () => {
                 style={{ width: "auto", height: "100%", objectFit: "cover" }}
                 alt={`A picture of our alumni, ${el.name}`}
               />
-              <Stack
-                direction="vertical"
-                justifyContent="center"
-                alignItems="start"
-                gap="3rem"
-                style={{
-                  backgroundColor: "white",
-                  padding: "3rem",
-                }}
-              >
+              <CardBody>
                 <BodyText
                   style={{
                     borderLeft: `3px solid ${Colors.Red.Redward}`,
@@ -108,9 +99,11 @@ export const Alumni = () => {
                     {el.currentJob}
                   </BodyText>
                 </Stack>
-              </Stack>
+              </CardBody>
             </Card>
           ))}
+
+          <div style={{ width: "0.2rem" }} />
         </Stack>
       </Marquee>
     </Stack>
@@ -130,5 +123,20 @@ const Card = styled.div`
     flex-direction: column;
     width: 400px;
     height: auto;
+  }
+`;
+
+const CardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 3rem;
+  background-color: white;
+  padding: 3rem;
+
+  @media (max-width: 900px) {
+    height: 100%;
+    justify-content: start;
   }
 `;
