@@ -1,8 +1,6 @@
 import {
   ASSET_URLS,
   BodyText,
-  BodyTextLarge,
-  Colors,
   Heading,
   Stack,
   Subheading2,
@@ -10,6 +8,7 @@ import {
 import { FAQAccordion } from "../components/accordion";
 import styled from "styled-components";
 import Image from "next/image";
+import { CustomHeadingResponsive } from "../components/responsive-heading";
 
 const contents: { title: string; content: string }[] = [
   {
@@ -42,7 +41,9 @@ export const FAQ = () => {
       gap="2rem"
       style={{ backgroundColor: "white", padding: "7rem 3rem 0" }}
     >
-      <Heading>FREQUENTLY ASKED QUESTIONS</Heading>
+      <CustomHeadingResponsive>
+        FREQUENTLY ASKED QUESTIONS
+      </CustomHeadingResponsive>
       <QnAContainer>
         {contents.map((el, i) => (
           <FAQAccordion
@@ -69,6 +70,9 @@ const QnAContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const MountainContainer = styled.div`
@@ -80,7 +84,11 @@ const MountainContainer = styled.div`
     height: 400px;
   }
   @media (max-width: 900px) {
-    width: 460px;
-    height: 200px;
+    width: 320px;
+    height: 150px;
+  }
+  @media (max-width: 400px) {
+    width: 250px;
+    height: 100px;
   }
 `;
