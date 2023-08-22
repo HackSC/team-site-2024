@@ -1,5 +1,6 @@
 import { BodyText, Colors, Heading, Stack } from "@hacksc/sctw-ui-kit";
 import Image from "next/image";
+import styled from "styled-components";
 
 export const Alumni = () => {
   const alumni: {
@@ -31,16 +32,7 @@ export const Alumni = () => {
       </Heading>
       <Stack>
         {alumni.map((el) => (
-          <Stack
-            gap="0"
-            style={{
-              width: "800px",
-              height: "400px",
-              borderRadius: "10px",
-              overflow: "hidden",
-            }}
-            key={el.name}
-          >
+          <Card key={el.name}>
             <Image
               src={el.photoUrl}
               width={0}
@@ -57,7 +49,7 @@ export const Alumni = () => {
               style={{
                 backgroundColor: "white",
                 height: "100%",
-                padding: "0 3rem",
+                padding: "3rem",
               }}
             >
               <BodyText
@@ -81,9 +73,25 @@ export const Alumni = () => {
                 </BodyText>
               </Stack>
             </Stack>
-          </Stack>
+          </Card>
         ))}
       </Stack>
     </Stack>
   );
 };
+
+const Card = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  gap: 0;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    width: 400px;
+    height: auto;
+  }
+`;
