@@ -30,7 +30,7 @@ export const Hero = () => {
           </Button>
         </Link>
         <br style={{ height: "1rem" }} />
-        <Subheading2 style={{ color: Colors.Blue.Bloo }}>
+        {/* <Subheading2 style={{ color: Colors.Blue.Bloo }}>
           Be the first to know of open roles
         </Subheading2>
         <form style={{ width: "100%" }}>
@@ -43,7 +43,7 @@ export const Hero = () => {
               JOIN US!
             </Button>
           </Stack>
-        </form>
+        </form> */}
       </Stack>
       <Image
         src={ASSET_URLS.BEACH_HOUSE}

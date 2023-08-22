@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Styles } from "./styles";
+import StyledComponentsRegistry from "./registry";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Join the team | HackSC",
@@ -14,8 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Styles />
-      <body style={{ padding: 0, margin: 0 }}>{children}</body>
+      <body style={{ padding: 0, margin: 0 }}>
+        <Styles />
+        <Analytics />
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
