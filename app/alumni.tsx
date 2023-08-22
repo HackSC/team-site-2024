@@ -48,7 +48,6 @@ export const Alumni = () => {
               gap="3rem"
               style={{
                 backgroundColor: "white",
-                height: "100%",
                 padding: "3rem",
               }}
             >
