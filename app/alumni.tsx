@@ -8,7 +8,16 @@ export const Alumni = () => {
     name: string;
     role: string;
     currentJob: string;
-  }[] = [];
+  }[] = [
+    {
+      photoUrl: "/alumni/katie.png",
+      quote:
+        "My favorite memory of HackSC was working with my amazing team to put together a covid safe hackathon against all odds! I am super proud of the team for their hard work and loved learning and becoming closer with HackSC my senior year.",
+      name: "Katherine Wong",
+      role: "President, HackSC '21",
+      currentJob: "SWE @ Pavillion",
+    },
+  ];
 
   return (
     <Stack
@@ -22,11 +31,22 @@ export const Alumni = () => {
       </Heading>
       <Stack>
         {alumni.map((el) => (
-          <Stack style={{ width: "800px", height: "400px" }} key={el.name}>
+          <Stack
+            gap="0"
+            style={{
+              width: "800px",
+              height: "400px",
+              borderRadius: "10px",
+              overflow: "hidden",
+            }}
+            key={el.name}
+          >
             <Image
               src={el.photoUrl}
-              fill
-              style={{ objectFit: "cover" }}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "auto", height: "100%", objectFit: "cover" }}
               alt={`A picture of our alumni, ${el.name}`}
             />
             <Stack
@@ -34,17 +54,24 @@ export const Alumni = () => {
               justifyContent="center"
               alignItems="start"
               gap="3rem"
+              style={{
+                backgroundColor: "white",
+                height: "100%",
+                padding: "0 3rem",
+              }}
             >
-              <BodyText>
+              <BodyText
+                style={{
+                  borderLeft: `3px solid ${Colors.Red.Redward}`,
+                  paddingLeft: "1rem",
+                  marginLeft: "-1rem",
+                }}
+              >
                 {'"'}
                 {el.quote}
                 {'"'}
               </BodyText>
-              <Stack
-                direction="vertical"
-                alignItems="start"
-                style={{ backgroundColor: "white" }}
-              >
+              <Stack direction="vertical" alignItems="start" gap="0">
                 <BodyText style={{ fontWeight: 800 }}>{el.name}</BodyText>
                 <BodyText style={{ color: Colors.Red.Redward }}>
                   {el.role}
