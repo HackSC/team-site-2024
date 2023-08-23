@@ -1,3 +1,4 @@
+"use client";
 import { ASSET_URLS, Colors, Stack } from "@hacksc/sctw-ui-kit";
 import * as Accordion from "@radix-ui/react-accordion";
 import Image from "next/image";

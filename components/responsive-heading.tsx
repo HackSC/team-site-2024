@@ -1,3 +1,5 @@
+"use client";
+
 import { Heading } from "@hacksc/sctw-ui-kit";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { useWindowSize } from "@uidotdev/usehooks";
