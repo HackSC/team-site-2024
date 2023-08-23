@@ -2,11 +2,14 @@ import {
   BodyText,
   BodyTextLarge,
   Button,
+  Colors,
   Heading,
   Stack,
   Subheading,
 } from "@hacksc/sctw-ui-kit";
 import Image from "next/image";
+import Link from "next/link";
+import styled from "styled-components";
 
 export type TOpenRoles = {
   team: string;
@@ -16,7 +19,24 @@ export type TOpenRoles = {
 }[];
 
 export const OpenRoles = () => {
-  const openRoles: TOpenRoles = [];
+  const openRoles: TOpenRoles = [
+    {
+      team: "Engineering",
+      teamColor: Colors.Red.Redward,
+      buttonColor: "red",
+      roles: [{ title: "Product Engineer", applyUrl: "" }],
+    },
+
+    {
+      team: "Product",
+      teamColor: Colors.Blue.Bloo,
+      buttonColor: "blue",
+      roles: [
+        { title: "UI/UX Designer", applyUrl: "" },
+        { title: "Graphics Designer", applyUrl: "" },
+      ],
+    },
+  ];
 
   return (
     <Stack
@@ -58,9 +78,8 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
         <Stack
           direction="vertical"
           style={{
-            minWidth: "500px",
             flexGrow: 2,
-            paddingBottom: "5rem",
+            paddingBottom: "2rem",
           }}
         >
           {props.openRoles.map((team) => (
@@ -94,28 +113,40 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
                     }}
                   >
                     <BodyText>{role.title}</BodyText>
-                    <Button color={team.buttonColor} fitWidth>
-                      APPLY
-                    </Button>
+                    <Link href={role.applyUrl} target="_blank">
+                      <Button color={team.buttonColor} fitWidth>
+                        APPLY
+                      </Button>
+                    </Link>
                   </Stack>
                 ))}
               </Stack>
             </Stack>
           ))}
         </Stack>
-        <Image
-          src="/graphics/palm-trees.svg"
-          width={400}
-          height={800}
-          alt="Decorative palm trees"
-          style={{
-            margin: "-50px 0",
-            zIndex: -1,
-            marginLeft: "auto",
-            marginTop: "auto",
-          }}
-        />
+        <PalmtreesContainer>
+          <Image
+            src="/graphics/palm-trees.svg"
+            fill
+            style={{ objectFit: "contain" }}
+            alt="Decorative palm trees"
+          />
+        </PalmtreesContainer>
       </Stack>
     );
   }
 };
+
+const PalmtreesContainer = styled.div`
+  position: relative;
+  width: 400px;
+  height: 800px;
+  margin: -50px 0;
+  z-index: -1;
+  margin-left: auto;
+  margin-top: auto;
+
+  @media (max-width: 400px) {
+    height: 600px;
+  }
+`;
