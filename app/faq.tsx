@@ -48,7 +48,11 @@ export const FAQ = () => {
         {contents.map((el, i) => (
           <FAQAccordion
             key={i}
-            title={<Subheading2>{el.title}</Subheading2>}
+            title={
+              <Subheading2 style={{ textAlign: "start" }}>
+                {el.title}
+              </Subheading2>
+            }
             content={<BodyText>{el.content}</BodyText>}
           />
         ))}

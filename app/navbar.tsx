@@ -1,24 +1,14 @@
-import {
-  ASSET_URLS,
-  Button,
-  NavigationText,
-  Stack,
-  Subheading,
-  Subheading2,
-} from "@hacksc/sctw-ui-kit";
+import { ASSET_URLS, Button, NavigationText, Stack } from "@hacksc/sctw-ui-kit";
 import Image from "next/image";
 import Link from "next/link";
+import styled from "styled-components";
 
 export const Navbar = () => {
   const homepageLink = "https://hacksc.com";
   const teampageLink = "https://team.hacksc.com";
 
   return (
-    <Stack
-      justifyContent="space-between"
-      wrap="wrap"
-      style={{ padding: "2rem 5rem" }}
-    >
+    <Container>
       <Stack direction="horizontal" alignItems="center" gap="0.5rem">
         <Image
           src={ASSET_URLS.HIBISCUS_LOGO_2024}
@@ -41,6 +31,19 @@ export const Navbar = () => {
           </Button>
         </Link>
       </Stack>
-    </Stack>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 5rem;
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+`;

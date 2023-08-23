@@ -1,6 +1,5 @@
 import {
   BodyText,
-  BodyTextLarge,
   Colors,
   Heading,
   Stack,
@@ -8,6 +7,7 @@ import {
 } from "@hacksc/sctw-ui-kit";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useState } from "react";
+import styled from "styled-components";
 
 interface Member {
   name: string;
@@ -91,7 +91,7 @@ export const Teams = () => {
       direction="vertical"
       justifyContent="center"
       gap="4rem"
-      style={{ padding: "5rem" }}
+      style={{ padding: "5rem 2rem" }}
     >
       <Heading>TEAMS</Heading>
       <Tabs.Root
@@ -99,9 +99,14 @@ export const Teams = () => {
         value={tabval}
         onValueChange={(val) => setTabval(val)}
       >
-        <Stack wrap="wrap" gap="2rem">
+        <Stack
+          wrap="wrap"
+          gap="2rem"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Tabs.List>
-            <Stack direction="vertical" alignItems="start" wrap="wrap">
+            <StackTriggers>
               {teams.map((el) => (
                 <Tabs.Trigger
                   value={el.teamName}
@@ -124,13 +129,13 @@ export const Teams = () => {
                   </Subheading2>
                 </Tabs.Trigger>
               ))}
-            </Stack>
+            </StackTriggers>
           </Tabs.List>
           {teams.map((el) => (
             <Tabs.Content value={el.teamName} key={el.teamName}>
               <Stack
                 style={{
-                  padding: "4rem",
+                  padding: "4rem 2rem",
                   border: `6px solid ${el.borderColor}`,
                   borderRadius: "10px",
                   backgroundColor: el.backgroundColor,
@@ -155,3 +160,14 @@ export const Teams = () => {
     </Stack>
   );
 };
+
+const StackTriggers = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @media (max-width: 1200px) {
+    flex-direction: row;
+  }
+`;

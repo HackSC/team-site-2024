@@ -1,4 +1,4 @@
-import { BodyTextLarge, Colors, Stack, Subheading } from "@hacksc/sctw-ui-kit";
+import { BodyTextLarge, Stack, Subheading } from "@hacksc/sctw-ui-kit";
 import styled from "styled-components";
 
 export const Hero2 = () => {
@@ -8,11 +8,10 @@ export const Hero2 = () => {
         alignItems="center"
         justifyContent="center"
         style={{
-          backgroundImage: "url(/squiggles.svg)",
           backgroundSize: "contain",
           width: "100%",
           height: "100%",
-          padding: "20rem 0",
+          padding: "5rem 0 3rem",
         }}
       >
         <Stack
@@ -46,5 +45,5 @@ const Container = styled(Stack)({
   backgroundImage: "url(/background-wavy.svg)",
   backgroundSize: "cover",
   padding: "5rem 0",
-  marginTop: "-8rem",
+  marginTop: "-3rem",
 });
