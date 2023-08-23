@@ -1,5 +1,4 @@
 import { BodyTextLarge, Colors, Stack, Subheading } from "@hacksc/sctw-ui-kit";
-import Image from "next/image";
 import styled from "styled-components";
 
 export const Hero2 = () => {
@@ -13,7 +12,7 @@ export const Hero2 = () => {
           backgroundSize: "contain",
           width: "100%",
           height: "100%",
-          padding: "30rem 0",
+          padding: "20rem 0",
         }}
       >
         <Stack
