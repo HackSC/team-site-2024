@@ -22,7 +22,6 @@ export const OpenRoles = () => {
     <Stack
       id="openroles"
       direction="vertical"
-      alignItems="start"
       gap="4rem"
       style={{ padding: "5rem 1rem", paddingBottom: 0 }}
     >

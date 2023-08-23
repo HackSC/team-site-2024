@@ -21,7 +21,7 @@ export const Hero2 = () => {
             width: "673px",
             position: "relative",
             zIndex: 1,
-            margin: "auto",
+            padding: "0 1rem",
           }}
         >
           <Subheading style={{ textAlign: "center" }}>
