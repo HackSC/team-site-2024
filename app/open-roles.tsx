@@ -137,7 +137,7 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
         alignItems="start"
         style={{ width: "100%" }}
       >
-        <Stack
+        <OpenRolesContainer
           direction="vertical"
           style={{
             flexGrow: 2,
@@ -182,7 +182,7 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
               </Stack>
             </Stack>
           ))}
-        </Stack>
+        </OpenRolesContainer>
         <PalmtreesContainer>
           <Image
             src="/graphics/palm-trees.svg"
@@ -196,6 +196,19 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
   }
 };
 
+const OpenRolesContainer = styled(Stack)`
+  padding-left: 3rem;
+  padding-right: 3rem;
+  @media (max-width: 600px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media (min-width: 1200px) {
+    padding-left: 10rem;
+    padding-right: 0rem;
+  }
+`;
+
 const PalmtreesContainer = styled.div`
   position: relative;
   width: 400px;
@@ -207,5 +220,9 @@ const PalmtreesContainer = styled.div`
 
   @media (max-width: 400px) {
     height: 600px;
+  }
+
+  @media (min-width: 1200px) {
+    padding-right: 10rem;
   }
 `;
