@@ -19,13 +19,18 @@ export type TOpenRoles = {
 }[];
 
 export const OpenRoles = () => {
-  const applicationLink = "https://hack.sc/apply";
   const openRoles: TOpenRoles = [
     {
       team: "Engineering",
       teamColor: Colors.Red.Redward,
       buttonColor: "red",
-      roles: [{ title: "Product Engineer", applyUrl: applicationLink }],
+      roles: [
+        {
+          title: "Product Engineer",
+          applyUrl:
+            "https://hacksc23.notion.site/Product-Engineer-c44db7f46789439c83c703eaea5198f1?pvs=4",
+        },
+      ],
     },
 
     {
@@ -33,27 +38,65 @@ export const OpenRoles = () => {
       teamColor: Colors.Blue.Bloo,
       buttonColor: "blue",
       roles: [
-        { title: "UI/UX Designer", applyUrl: applicationLink },
-        { title: "Graphics Designer", applyUrl: applicationLink },
+        {
+          title: "UI/UX Designer",
+          applyUrl:
+            "https://hacksc23.notion.site/UI-UX-Designer-6f3ddc4fdea54f4780c0683469f37c5e?pvs=4",
+        },
+        {
+          title: "Graphics Designer",
+          applyUrl:
+            "https://hacksc23.notion.site/Graphic-Designer-0c6c2c54aace437db76874bdd64ba08d",
+        },
+      ],
+    },
+    {
+      team: "Hacker Experience",
+      teamColor: Colors.Yellow.ArthurSweater,
+      buttonColor: "yellow",
+      roles: [
+        {
+          title: "Experience Coordinator",
+          applyUrl:
+            "https://hacksc23.notion.site/Experience-Coordinator-fddbe7b0b365488586b9636d0921b404?pvs=4",
+        },
       ],
     },
     {
       team: "Operations",
-      teamColor: Colors.Yellow.Yuhlow,
-      buttonColor: "yellow",
-      roles: [{ title: "Operations Coordinator", applyUrl: applicationLink }],
-    },
-    {
-      team: "Hacker Experience",
       teamColor: Colors.Red.Redward,
       buttonColor: "red",
-      roles: [{ title: "Experience Coordinator", applyUrl: applicationLink }],
+      roles: [
+        {
+          title: "Operations Coordinator",
+          applyUrl:
+            "https://hacksc23.notion.site/Operations-Coordinator-44706cf630d94bcb82bb5dd44ab87540?pvs=4",
+        },
+      ],
+    },
+    {
+      team: "Marketing",
+      teamColor: Colors.Yellow.ArthurSweater,
+      buttonColor: "yellow",
+      roles: [
+        {
+          title: "Marketing Coordinator",
+          applyUrl:
+            "https://hacksc23.notion.site/Marketing-Coordinator-45bacd29d63b4cb19398de98441daebf?pvs=4",
+        },
+      ],
     },
     {
       team: "Partnerships",
       teamColor: Colors.Blue.Bloo,
       buttonColor: "blue",
-      roles: [{ title: "Partnerships Coordinator", applyUrl: applicationLink }],
+      roles: [
+        {
+          title: "Partnerships Coordinator",
+          applyUrl:
+            "https://hacksc23.notion.site/Partnerships-Coordinator-c4244b7af50844d58b6216121cd09a5d?pvs=4",
+        },
+      ],
     },
   ];
 
