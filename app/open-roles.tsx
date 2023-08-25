@@ -135,6 +135,7 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
         direction="horizontal"
         wrap="wrap"
         alignItems="start"
+        justifyContent="center"
         style={{ width: "100%" }}
       >
         <OpenRolesContainer
