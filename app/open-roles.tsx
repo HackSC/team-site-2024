@@ -124,9 +124,6 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
                     justifyContent="space-between"
                     key={role.title}
                     style={{
-                      borderTop: `${i === 0 ? "0" : "1px"} solid ${
-                        team.teamColor
-                      }`,
                       padding: "0.75rem 0",
                       width: "100%",
                     }}
