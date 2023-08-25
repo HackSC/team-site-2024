@@ -1,6 +1,6 @@
 "use client";
 
-import { Colors, Stack, Subheading2 } from "@hacksc/sctw-ui-kit";
+import { BodyTextLarge, Colors, Stack, Subheading2 } from "@hacksc/sctw-ui-kit";
 import { CustomHeadingResponsive } from "../components/responsive-heading";
 import dynamic from "next/dynamic";
 
@@ -34,5 +34,9 @@ export const AlumniDestinations = () => {
 
 const AlumniDestinationsContainer = dynamic(
   () => import("../components/destination-marquees"),
-  {},
+  {
+    loading: () => (
+      <BodyTextLarge style={{ textAlign: "center" }}>Loading...</BodyTextLarge>
+    ),
+  },
 );
