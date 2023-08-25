@@ -19,12 +19,13 @@ export type TOpenRoles = {
 }[];
 
 export const OpenRoles = () => {
+  const applicationLink = "https://hack.sc/apply";
   const openRoles: TOpenRoles = [
     {
       team: "Engineering",
       teamColor: Colors.Red.Redward,
       buttonColor: "red",
-      roles: [{ title: "Product Engineer", applyUrl: "" }],
+      roles: [{ title: "Product Engineer", applyUrl: applicationLink }],
     },
 
     {
@@ -32,9 +33,27 @@ export const OpenRoles = () => {
       teamColor: Colors.Blue.Bloo,
       buttonColor: "blue",
       roles: [
-        { title: "UI/UX Designer", applyUrl: "" },
-        { title: "Graphics Designer", applyUrl: "" },
+        { title: "UI/UX Designer", applyUrl: applicationLink },
+        { title: "Graphics Designer", applyUrl: applicationLink },
       ],
+    },
+    {
+      team: "Operations",
+      teamColor: Colors.Yellow.Yuhlow,
+      buttonColor: "yellow",
+      roles: [{ title: "Operations Coordinator", applyUrl: applicationLink }],
+    },
+    {
+      team: "Hacker Experience",
+      teamColor: Colors.Red.Redward,
+      buttonColor: "red",
+      roles: [{ title: "Experience Coordinator", applyUrl: applicationLink }],
+    },
+    {
+      team: "Partnerships",
+      teamColor: Colors.Blue.Bloo,
+      buttonColor: "blue",
+      roles: [{ title: "Partnerships Coordinator", applyUrl: applicationLink }],
     },
   ];
 
