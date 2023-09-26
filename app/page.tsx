@@ -17,7 +17,6 @@ export default function Home() {
       <Hero />
       <Hero2 />
       <Teams />
-      <OpenRoles />
       <Alumni />
       <AlumniDestinations />
       <FAQ />

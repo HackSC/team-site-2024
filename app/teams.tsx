@@ -3,13 +3,15 @@
 import {
   BodyText,
   Colors,
-  Heading,
+  Subheading,
   Stack,
   Subheading2,
+  Button,
 } from "@hacksc/sctw-ui-kit";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useState } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 interface Member {
   name: string;
@@ -24,6 +26,7 @@ export const teams: {
   backgroundColor: string;
   borderColor: string;
   tabChosenColor: string;
+  img: string;
   lead?: Member;
   members?: Record<Role, Member[]>;
 }[] = [
@@ -35,6 +38,7 @@ export const teams: {
     backgroundColor: Colors.Red.DonatedBlood,
     borderColor: Colors.Red.Redward,
     tabChosenColor: Colors.Red.Rash,
+    img: "/teams/engineering.png",
   },
   {
     teamName: "Product",
@@ -44,6 +48,7 @@ export const teams: {
     backgroundColor: Colors.Blue.DarkBloo,
     borderColor: Colors.Blue.Bloo,
     tabChosenColor: Colors.Blue.Periwinkle,
+    img: "/teams/product.png",
   },
   {
     teamName: "Hacker Experience",
@@ -53,6 +58,7 @@ export const teams: {
     backgroundColor: Colors.Yellow.ArthurSweater,
     borderColor: Colors.Yellow.BabyFood,
     tabChosenColor: Colors.Neutral.Bagel,
+    img: "/teams/experience.png",
   },
   {
     teamName: "Operations",
@@ -62,6 +68,7 @@ export const teams: {
     backgroundColor: Colors.Red.DonatedBlood,
     borderColor: Colors.Red.Redward,
     tabChosenColor: Colors.Red.Rash,
+    img: "/teams/operations.png",
   },
   {
     teamName: "Marketing",
@@ -72,6 +79,7 @@ Marketing wants to share with the world what HackSC is all about!
     backgroundColor: Colors.Yellow.ArthurSweater,
     borderColor: Colors.Yellow.BabyFood,
     tabChosenColor: Colors.Neutral.Bagel,
+    img: "/teams/marketing.png",
   },
   {
     teamName: "Partnerships",
@@ -81,6 +89,7 @@ The Partnerships Team provides funding for our hackathon, reaching out to potent
     backgroundColor: Colors.Blue.DarkBloo,
     borderColor: Colors.Blue.Bloo,
     tabChosenColor: Colors.Blue.Periwinkle,
+    img: "/teams/partnerships.png",
   },
 ];
 
@@ -95,7 +104,33 @@ export const Teams = () => {
       gap="4rem"
       style={{ padding: "5rem 2rem" }}
     >
-      <Heading>TEAMS</Heading>
+      <Subheading>THE SIX CORE TEAMS</Subheading>
+      <TeamCards>
+        {teams.map((el) => (
+          <>
+            <Stack direction="vertical">
+              <TeamImage key={el.teamName}>
+                <ImageContainer style={{ border: el.borderColor }}>
+                  <Image
+                    src={el.img}
+                    alt={el.description}
+                    width={200}
+                    height={426}
+                    style={{
+                      borderRadius: "31.831px",
+                      border: `5px solid ${el.borderColor}`,
+                      background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat}`,
+                    }}
+                  />
+                </ImageContainer>
+              </TeamImage>
+              <Button variant="outline" color="black" type="button">
+                JOIN US!
+              </Button>
+            </Stack>
+          </>
+        ))}
+      </TeamCards>
       <Tabs.Root
         defaultValue={defaultVal}
         value={tabval}
@@ -172,4 +207,27 @@ const StackTriggers = styled.div`
   @media (max-width: 1200px) {
     flex-direction: row;
   }
+`;
+
+const TeamCards = styled.div`
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 22px;
+`;
+
+const TeamImage = styled.div`
+  width: 200px;
+  height: 426px;
+  flex-shrink: 0;
+  border-radius: 31.831px;
+  background: linear-gradient(0deg, #000 10.51%, rgba(0, 0, 0, 0) 31.53%);
+`;
+
+const ImageContainer = styled.div`
+  width: 200px;
+  height: 426px;
+  flex-shrink: 0;
+  border-radius: 31.831px;
+  border: 5px solid;
+  background: linear-gradient(0deg, #000 10.51%, rgba(0, 0, 0, 0) 31.53%);
 `;
