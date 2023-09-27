@@ -45,17 +45,21 @@ export const FAQ = () => {
         FREQUENTLY ASKED QUESTIONS
       </CustomHeadingResponsive>
       <QnAContainer>
-        {contents.map((el, i) => (
-          <FAQAccordion
-            key={i}
-            title={
-              <Subheading2 style={{ textAlign: "start" }}>
-                {el.title}
-              </Subheading2>
-            }
-            content={<BodyText>{el.content}</BodyText>}
-          />
-        ))}
+        {contents.map(function (el, i) {
+          const arrowColor = i % 2 == 0 ? "blue" : "red";
+          return (
+            <FAQAccordion
+              key={i}
+              arrowColor={arrowColor}
+              title={
+                <Subheading2 style={{ textAlign: "start" }}>
+                  {el.title}
+                </Subheading2>
+              }
+              content={<BodyText>{el.content}</BodyText>}
+            />
+          );
+        })}
       </QnAContainer>
 
       <MountainContainer>

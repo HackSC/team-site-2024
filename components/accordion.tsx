@@ -8,20 +8,18 @@ import styled from "styled-components";
 export const FAQAccordion = (props: {
   title: React.ReactNode;
   content: React.ReactNode;
+  arrowColor: "red" | "blue";
 }) => {
   const id = useId();
+  const arrow =
+    props.arrowColor == "red" ? ASSET_URLS.ARROW_RED : ASSET_URLS.ARROW_BLUE;
   return (
     <Accordion.Root type="single" collapsible>
       <Accordion.Item value={id}>
         <Accordion.Header>
           <Trigger>
             <Stack>
-              <Image
-                src={ASSET_URLS.ARROW_BLUE}
-                alt={"Blue arrow"}
-                width={30}
-                height={30}
-              />
+              <Image src={arrow} alt={"Blue arrow"} width={30} height={30} />
               {props.title}
             </Stack>
           </Trigger>
