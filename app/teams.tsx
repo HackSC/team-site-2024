@@ -110,16 +110,24 @@ export const Teams = () => {
           <>
             <Stack direction="vertical">
               <TeamImage key={el.teamName}>
-                <ImageContainer style={{ border: el.borderColor }}>
+                <ImageContainer
+                  style={{
+                    border: el.borderColor,
+                    objectFit: "cover",
+                    position: "relative",
+                  }}
+                >
                   <Image
                     src={el.img}
                     alt={el.description}
                     width={200}
                     height={426}
+                    // fill={true}
                     style={{
                       borderRadius: "31.831px",
                       border: `5px solid ${el.borderColor}`,
                       background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat}`,
+                      overflow: "hidden",
                     }}
                   />
                 </ImageContainer>
@@ -143,7 +151,8 @@ export const Teams = () => {
           justifyContent="center"
         >
           <Tabs.List>
-            <StackTriggers>
+            <Subheading2 style={{ paddingBottom: "36px" }}>TEAMS</Subheading2>
+            <StackTriggers style={{ gap: "22.5px" }}>
               {teams.map((el) => (
                 <Tabs.Trigger
                   value={el.teamName}
@@ -157,6 +166,8 @@ export const Teams = () => {
                         ? el.tabChosenColor
                         : "transparent",
                     color: el.backgroundColor,
+                    textTransform: "uppercase",
+                    // paddingBottom: "45px",
                   }}
                 >
                   <Subheading2
@@ -173,21 +184,28 @@ export const Teams = () => {
               <Stack
                 style={{
                   padding: "4rem 2rem",
-                  border: `6px solid ${el.borderColor}`,
-                  borderRadius: "10px",
-                  backgroundColor: el.backgroundColor,
                   maxWidth: "30rem",
                 }}
                 justifyContent="center"
                 alignItems="center"
               >
-                <Stack
-                  direction="vertical"
-                  alignItems="start"
-                  style={{ color: "white" }}
-                >
-                  <Subheading2>{el.teamName.toUpperCase()} TEAM</Subheading2>
+                <Stack direction="vertical" alignItems="start">
+                  <Subheading>{el.teamName.toUpperCase()} TEAM</Subheading>
                   <BodyText>{el.description}</BodyText>
+                  <Stack direction="horizontal">
+                    <Image
+                      src={el.img}
+                      alt={`${el.teamName} image`}
+                      width={239}
+                      height={159}
+                    />
+                    <Image
+                      src={el.img}
+                      alt={`${el.teamName} image`}
+                      width={239}
+                      height={159}
+                    />
+                  </Stack>
                 </Stack>
               </Stack>
             </Tabs.Content>

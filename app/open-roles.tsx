@@ -26,7 +26,22 @@ export const OpenRoles = () => {
       buttonColor: "red",
       roles: [
         {
-          title: "Product Engineer",
+          title: "Software Developer | Fronted",
+          applyUrl:
+            "https://hacksc23.notion.site/Product-Engineer-c44db7f46789439c83c703eaea5198f1?pvs=4",
+        },
+        {
+          title: "Software Developer | Backend",
+          applyUrl:
+            "https://hacksc23.notion.site/Product-Engineer-c44db7f46789439c83c703eaea5198f1?pvs=4",
+        },
+        {
+          title: "Software Developer | Infrastructure",
+          applyUrl:
+            "https://hacksc23.notion.site/Product-Engineer-c44db7f46789439c83c703eaea5198f1?pvs=4",
+        },
+        {
+          title: "Product Manager",
           applyUrl:
             "https://hacksc23.notion.site/Product-Engineer-c44db7f46789439c83c703eaea5198f1?pvs=4",
         },
@@ -50,18 +65,18 @@ export const OpenRoles = () => {
         },
       ],
     },
-    {
-      team: "Hacker Experience",
-      teamColor: Colors.Yellow.ArthurSweater,
-      buttonColor: "yellow",
-      roles: [
-        {
-          title: "Experience Coordinator",
-          applyUrl:
-            "https://hacksc23.notion.site/Experience-Coordinator-fddbe7b0b365488586b9636d0921b404?pvs=4",
-        },
-      ],
-    },
+    // {
+    //   team: "Hacker Experience",
+    //   teamColor: Colors.Yellow.ArthurSweater,
+    //   buttonColor: "yellow",
+    //   roles: [
+    //     {
+    //       title: "Experience Coordinator",
+    //       applyUrl:
+    //         "https://hacksc23.notion.site/Experience-Coordinator-fddbe7b0b365488586b9636d0921b404?pvs=4",
+    //     },
+    //   ],
+    // },
     {
       team: "Operations",
       teamColor: Colors.Red.Redward,
@@ -80,24 +95,29 @@ export const OpenRoles = () => {
       buttonColor: "yellow",
       roles: [
         {
-          title: "Marketing Coordinator",
+          title: "Marketing Team | PR & Brand",
+          applyUrl:
+            "https://hacksc23.notion.site/Marketing-Coordinator-45bacd29d63b4cb19398de98441daebf?pvs=4",
+        },
+        {
+          title: "Marketing Team | Content",
           applyUrl:
             "https://hacksc23.notion.site/Marketing-Coordinator-45bacd29d63b4cb19398de98441daebf?pvs=4",
         },
       ],
     },
-    {
-      team: "Partnerships",
-      teamColor: Colors.Blue.Bloo,
-      buttonColor: "blue",
-      roles: [
-        {
-          title: "Partnerships Coordinator",
-          applyUrl:
-            "https://hacksc23.notion.site/Partnerships-Coordinator-c4244b7af50844d58b6216121cd09a5d?pvs=4",
-        },
-      ],
-    },
+    // {
+    //   team: "Partnerships",
+    //   teamColor: Colors.Blue.Bloo,
+    //   buttonColor: "blue",
+    //   roles: [
+    //     {
+    //       title: "Partnerships Team | Strategy Outreach",
+    //       applyUrl:
+    //         "https://hacksc23.notion.site/Partnerships-Coordinator-c4244b7af50844d58b6216121cd09a5d?pvs=4",
+    //     },
+    //   ],
+    // },
   ];
 
   return (
@@ -107,7 +127,15 @@ export const OpenRoles = () => {
       gap="4rem"
       style={{ padding: "5rem 1rem", paddingBottom: 0 }}
     >
-      <Heading>OPEN POSITIONS</Heading>
+      <Heading
+        style={{
+          alignSelf: "start",
+          paddingLeft: "10rem",
+          paddingRight: "3rem",
+        }}
+      >
+        OPEN POSITIONS
+      </Heading>
 
       <OpenRolesDetails openRoles={openRoles} />
     </Stack>
@@ -162,24 +190,41 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
                 gap="0"
                 style={{ width: "100%" }}
               >
-                {team.roles.map((role, i) => (
-                  <Stack
-                    direction="horizontal"
-                    justifyContent="space-between"
-                    key={role.title}
-                    style={{
-                      padding: "0.75rem 0",
-                      width: "100%",
-                    }}
-                  >
-                    <BodyText>{role.title}</BodyText>
-                    <Link href={role.applyUrl} target="_blank">
-                      <Button color={team.buttonColor} fitWidth>
-                        APPLY
-                      </Button>
-                    </Link>
-                  </Stack>
-                ))}
+                {team.roles.map(function (role, i) {
+                  // Divider on every row except for the last
+                  const divider =
+                    i != team.roles.length - 1 ? (
+                      <hr
+                        style={{
+                          width: "100%",
+                          height: "1px",
+                          backgroundColor: team.teamColor,
+                          border: "none",
+                        }}
+                      />
+                    ) : null;
+                  return (
+                    <>
+                      <Stack
+                        direction="horizontal"
+                        justifyContent="space-between"
+                        key={role.title}
+                        style={{
+                          padding: "0.75rem 0",
+                          width: "100%",
+                        }}
+                      >
+                        <BodyText>{role.title}</BodyText>
+                        <Link href={role.applyUrl} target="_blank">
+                          <Button color={team.buttonColor} fitWidth>
+                            APPLY
+                          </Button>
+                        </Link>
+                      </Stack>
+                      {divider}
+                    </>
+                  );
+                })}
               </Stack>
             </Stack>
           ))}
