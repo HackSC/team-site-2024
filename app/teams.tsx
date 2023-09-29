@@ -27,6 +27,7 @@ export const teams: {
   borderColor: string;
   tabChosenColor: string;
   img: string;
+  imgFit?: string;
   lead?: Member;
   members?: Record<Role, Member[]>;
 }[] = [
@@ -39,6 +40,7 @@ export const teams: {
     borderColor: Colors.Red.Redward,
     tabChosenColor: Colors.Red.Rash,
     img: "/teams/engineering.png",
+    imgFit: "40%",
   },
   {
     teamName: "Product",
@@ -49,6 +51,7 @@ export const teams: {
     borderColor: Colors.Blue.Bloo,
     tabChosenColor: Colors.Blue.Periwinkle,
     img: "/teams/product.png",
+    imgFit: "55%",
   },
   {
     teamName: "Hacker Experience",
@@ -69,6 +72,7 @@ export const teams: {
     borderColor: Colors.Red.Redward,
     tabChosenColor: Colors.Red.Rash,
     img: "/teams/operations.png",
+    imgFit: "60%",
   },
   {
     teamName: "Marketing",
@@ -80,6 +84,7 @@ Marketing wants to share with the world what HackSC is all about!
     borderColor: Colors.Yellow.BabyFood,
     tabChosenColor: Colors.Neutral.Bagel,
     img: "/teams/marketing.png",
+    imgFit: "75%",
   },
   {
     teamName: "Partnerships",
@@ -113,21 +118,24 @@ export const Teams = () => {
                 <ImageContainer
                   style={{
                     border: el.borderColor,
-                    objectFit: "cover",
-                    position: "relative",
                   }}
                 >
                   <Image
                     src={el.img}
                     alt={el.description}
-                    width={200}
-                    height={426}
-                    // fill={true}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                     style={{
                       borderRadius: "31.831px",
                       border: `5px solid ${el.borderColor}`,
                       background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat}`,
                       overflow: "hidden",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: el.imgFit,
+                      maxWidth: "400px",
                     }}
                   />
                 </ImageContainer>
@@ -244,8 +252,14 @@ const TeamImage = styled.div`
 const ImageContainer = styled.div`
   width: 200px;
   height: 426px;
-  flex-shrink: 0;
+  display: "flex",
+  flexDirection: "column",
+  flexWrap: wrap
   border-radius: 31.831px;
   border: 5px solid;
   background: linear-gradient(0deg, #000 10.51%, rgba(0, 0, 0, 0) 31.53%);
+  position: relative;
+  @media (max-width: 480px) {
+    height: 426px;
+  }
 `;
