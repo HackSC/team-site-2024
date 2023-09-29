@@ -17,9 +17,11 @@ export const FAQAccordion = (props: {
     <Accordion.Root type="single" collapsible>
       <Accordion.Item value={id}>
         <Accordion.Header>
-          <Trigger>
+          <Trigger className="AccordionTrigger">
             <Stack>
-              <Image src={arrow} alt={"Blue arrow"} width={30} height={30} />
+              <Arrow className="accordionArrow">
+                <Image src={arrow} alt={"Blue arrow"} width={30} height={30} />
+              </Arrow>
               {props.title}
             </Stack>
           </Trigger>
@@ -29,13 +31,20 @@ export const FAQAccordion = (props: {
     </Accordion.Root>
   );
 };
-
+const Arrow = styled.div`
+  transform: rotate(270deg);
+  transition: transform 300ms;
+`;
 const Trigger = styled(Accordion.Trigger)`
   background-color: transparent;
   border: unset;
   height: fit-content;
   cursor: pointer;
+  transition: transform 300ms;
   :hover {
     background-color: ${Colors.Neutral.Gray.LIGHT};
+  }
+  &[data-state="open"] ${Arrow} {
+    transform: rotate(360deg);
   }
 `;
