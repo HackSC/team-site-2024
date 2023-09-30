@@ -1,3 +1,4 @@
+import { CustomHeadingResponsive } from "@/components/responsive-heading";
 import {
   BodyText,
   BodyTextLarge,
@@ -125,18 +126,9 @@ export const OpenRoles = () => {
       id="openroles"
       direction="vertical"
       gap="4rem"
+      wrap="wrap"
       style={{ padding: "5rem 1rem", paddingBottom: 0 }}
     >
-      <Heading
-        style={{
-          alignSelf: "start",
-          paddingLeft: "10rem",
-          paddingRight: "3rem",
-        }}
-      >
-        OPEN POSITIONS
-      </Heading>
-
       <OpenRolesDetails openRoles={openRoles} />
     </Stack>
   );
@@ -173,6 +165,9 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
             paddingBottom: "2rem",
           }}
         >
+          <CustomHeadingResponsive style={{ alignSelf: "start" }}>
+            OPEN POSITIONS
+          </CustomHeadingResponsive>
           {props.openRoles.map((team) => (
             <Stack
               direction="vertical"

@@ -200,18 +200,18 @@ export const Teams = () => {
                 <Stack direction="vertical" alignItems="start">
                   <Subheading>{el.teamName.toUpperCase()} TEAM</Subheading>
                   <BodyText>{el.description}</BodyText>
-                  <Stack direction="horizontal">
+                  <Stack direction="horizontal" wrap="wrap">
                     <Image
                       src={el.img}
                       alt={`${el.teamName} image`}
-                      width={239}
-                      height={159}
+                      width={215}
+                      height={143}
                     />
                     <Image
                       src={el.img}
                       alt={`${el.teamName} image`}
-                      width={239}
-                      height={159}
+                      width={215}
+                      height={143}
                     />
                   </Stack>
                 </Stack>
