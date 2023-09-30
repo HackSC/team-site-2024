@@ -110,7 +110,7 @@ export const Teams = () => {
       style={{ padding: "5rem 2rem" }}
     >
       <Subheading>THE SIX CORE TEAMS</Subheading>
-      <TeamCards>
+      <Stack justifyContent="center" wrap="wrap" style={{ gap: "22px" }}>
         {teams.map((el) => (
           <>
             <Stack direction="vertical">
@@ -146,7 +146,7 @@ export const Teams = () => {
             </Stack>
           </>
         ))}
-      </TeamCards>
+      </Stack>
       <Tabs.Root
         defaultValue={defaultVal}
         value={tabval}
@@ -235,12 +235,6 @@ const StackTriggers = styled.div`
   }
 `;
 
-const TeamCards = styled.div`
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 22px;
-`;
-
 const TeamImage = styled.div`
   width: 200px;
   height: 426px;
@@ -252,14 +246,8 @@ const TeamImage = styled.div`
 const ImageContainer = styled.div`
   width: 200px;
   height: 426px;
-  display: "flex",
-  flexDirection: "column",
-  flexWrap: wrap
   border-radius: 31.831px;
   border: 5px solid;
   background: linear-gradient(0deg, #000 10.51%, rgba(0, 0, 0, 0) 31.53%);
   position: relative;
-  @media (max-width: 480px) {
-    height: 426px;
-  }
 `;
