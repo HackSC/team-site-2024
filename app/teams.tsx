@@ -112,39 +112,37 @@ export const Teams = () => {
       <Subheading>THE SIX CORE TEAMS</Subheading>
       <Stack justifyContent="center" wrap="wrap" style={{ gap: "22px" }}>
         {teams.map((el) => (
-          <>
-            <Stack direction="vertical">
-              <TeamImage key={el.teamName}>
-                <ImageContainer
+          <Stack direction="vertical" key={el.teamName}>
+            <TeamImage key={el.teamName}>
+              <ImageContainer
+                style={{
+                  border: el.borderColor,
+                }}
+              >
+                <Image
+                  src={el.img}
+                  alt={el.description}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   style={{
-                    border: el.borderColor,
+                    borderRadius: "31.831px",
+                    border: `5px solid ${el.borderColor}`,
+                    background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat}`,
+                    overflow: "hidden",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: el.imgFit,
+                    maxWidth: "400px",
                   }}
-                >
-                  <Image
-                    src={el.img}
-                    alt={el.description}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    style={{
-                      borderRadius: "31.831px",
-                      border: `5px solid ${el.borderColor}`,
-                      background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat}`,
-                      overflow: "hidden",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: el.imgFit,
-                      maxWidth: "400px",
-                    }}
-                  />
-                </ImageContainer>
-              </TeamImage>
-              <Button variant="outline" color="black" type="button">
-                JOIN US!
-              </Button>
-            </Stack>
-          </>
+                />
+              </ImageContainer>
+            </TeamImage>
+            <Button variant="outline" color="black" type="button">
+              JOIN US!
+            </Button>
+          </Stack>
         ))}
       </Stack>
       <Tabs.Root
