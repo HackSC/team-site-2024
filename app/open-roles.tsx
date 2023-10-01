@@ -186,38 +186,23 @@ const OpenRolesDetails = (props: { openRoles: TOpenRoles }) => {
                 style={{ width: "100%" }}
               >
                 {team.roles.map(function (role, i) {
-                  // Divider on every row except for the last
-                  const divider =
-                    i != team.roles.length - 1 ? (
-                      <hr
-                        style={{
-                          width: "100%",
-                          height: "1px",
-                          backgroundColor: team.teamColor,
-                          border: "none",
-                        }}
-                      />
-                    ) : null;
                   return (
-                    <>
-                      <Stack
-                        direction="horizontal"
-                        justifyContent="space-between"
-                        key={role.title}
-                        style={{
-                          padding: "0.75rem 0",
-                          width: "100%",
-                        }}
-                      >
-                        <BodyText>{role.title}</BodyText>
-                        <Link href={role.applyUrl} target="_blank">
-                          <Button color={team.buttonColor} fitWidth>
-                            APPLY
-                          </Button>
-                        </Link>
-                      </Stack>
-                      {divider}
-                    </>
+                    <Stack
+                      direction="horizontal"
+                      justifyContent="space-between"
+                      key={role.title}
+                      style={{
+                        padding: "0.75rem 0",
+                        width: "100%",
+                      }}
+                    >
+                      <BodyText>{role.title}</BodyText>
+                      <Link href={role.applyUrl} target="_blank">
+                        <Button color={team.buttonColor} fitWidth>
+                          APPLY
+                        </Button>
+                      </Link>
+                    </Stack>
                   );
                 })}
               </Stack>
