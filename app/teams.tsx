@@ -140,7 +140,7 @@ export const Teams = () => {
               </ImageContainer>
             </TeamImage>
             <Button variant="outline" color="black" type="button">
-              JOIN US!
+              LEARN MORE!
             </Button>
           </Stack>
         ))}
