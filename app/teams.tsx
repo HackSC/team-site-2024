@@ -98,6 +98,23 @@ The Partnerships Team provides funding for our hackathon, reaching out to potent
   },
 ];
 
+const Overlay = () => (
+  <div
+    style={{
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      background:
+        "linear-gradient(0deg, #000 10.51%, rgba(0, 0, 0, 0.00) 31.53%)",
+      opacity: 0.9,
+      borderRadius: "28px", // as much as the image
+      transform: "scale(101%)",
+      zIndex: 0,
+      bottom: 7, // as much as the image
+    }}
+  />
+);
+
 export const Teams = () => {
   const defaultVal = teams[0].teamName;
   const [tabval, setTabval] = useState(defaultVal);
@@ -114,11 +131,8 @@ export const Teams = () => {
         {teams.map((el) => (
           <Stack direction="vertical" key={el.teamName}>
             <TeamImage key={el.teamName}>
-              <ImageContainer
-                style={{
-                  border: el.borderColor,
-                }}
-              >
+              <ImageContainer>
+                <Overlay />
                 <Image
                   src={el.img}
                   alt={el.description}
@@ -128,7 +142,7 @@ export const Teams = () => {
                   style={{
                     borderRadius: "31.831px",
                     border: `5px solid ${el.borderColor}`,
-                    background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat}`,
+                    background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat`,
                     overflow: "hidden",
                     width: "100%",
                     height: "100%",
@@ -137,6 +151,19 @@ export const Teams = () => {
                     maxWidth: "400px",
                   }}
                 />
+                <Subheading2
+                  style={{
+                    position: "absolute",
+                    color: "white",
+                    bottom: -20,
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  {el.teamName == "Hacker Experience"
+                    ? "Experience"
+                    : el.teamName}
+                </Subheading2>
               </ImageContainer>
             </TeamImage>
             <Button variant="outline" color="black" type="button">
@@ -237,15 +264,14 @@ const TeamImage = styled.div`
   width: 200px;
   height: 426px;
   flex-shrink: 0;
-  border-radius: 31.831px;
-  background: linear-gradient(0deg, #000 10.51%, rgba(0, 0, 0, 0) 31.53%);
 `;
 
 const ImageContainer = styled.div`
   width: 200px;
   height: 426px;
-  border-radius: 31.831px;
-  border: 5px solid;
-  background: linear-gradient(0deg, #000 10.51%, rgba(0, 0, 0, 0) 31.53%);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
 `;
