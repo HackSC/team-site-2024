@@ -191,8 +191,8 @@ export const Teams = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <Tabs.List>
-            <Subheading2 style={{ paddingBottom: "36px" }}>TEAMS</Subheading2>
+          <Tabs.List style={{ paddingTop: "100px" }}>
+            <Subheading2>TEAMS</Subheading2>
             <StackTriggers style={{ gap: "22.5px" }}>
               {teams.map((el) => (
                 <Tabs.Trigger
