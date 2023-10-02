@@ -127,56 +127,64 @@ export const Teams = () => {
       style={{ padding: "5rem 2rem" }}
     >
       <Subheading>THE SIX CORE TEAMS</Subheading>
-      <Stack justifyContent="center" wrap="wrap" style={{ gap: "22px" }}>
-        {teams.map((el) => (
-          <Stack direction="vertical" key={el.teamName}>
-            <TeamImage key={el.teamName}>
-              <ImageContainer>
-                <Overlay />
-                <Image
-                  src={el.img}
-                  alt={el.description}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{
-                    borderRadius: "31.831px",
-                    border: `5px solid ${el.borderColor}`,
-                    background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat`,
-                    overflow: "hidden",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: el.imgFit,
-                    maxWidth: "400px",
-                  }}
-                />
-                <Subheading2
-                  style={{
-                    position: "absolute",
-                    color: "white",
-                    bottom: -20,
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  {el.teamName == "Hacker Experience"
-                    ? "Experience"
-                    : el.teamName}
-                </Subheading2>
-              </ImageContainer>
-            </TeamImage>
-            <Button variant="outline" color="black" type="button">
-              LEARN MORE!
-            </Button>
-          </Stack>
-        ))}
-      </Stack>
       <Tabs.Root
         defaultValue={defaultVal}
         value={tabval}
         onValueChange={(val) => setTabval(val)}
       >
+        <Tabs.List>
+          <Stack justifyContent="center" wrap="wrap" style={{ gap: "22px" }}>
+            {teams.map((el) => (
+              <Stack direction="vertical" key={el.teamName}>
+                <Tabs.Trigger
+                  style={{ visibility: "hidden" }}
+                  value={el.teamName}
+                >
+                  <TeamImage>
+                    <ImageContainer>
+                      <Overlay />
+                      <Image
+                        src={el.img}
+                        alt={el.description}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{
+                          borderRadius: "31.831px",
+                          border: `5px solid ${el.borderColor}`,
+                          background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat`,
+                          overflow: "hidden",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: el.imgFit,
+                          maxWidth: "400px",
+                        }}
+                      />
+                      <Subheading2
+                        style={{
+                          position: "absolute",
+                          color: "white",
+                          bottom: -20,
+                          left: "50%",
+                          transform: "translate(-50%, -50%)",
+                        }}
+                      >
+                        {el.teamName == "Hacker Experience"
+                          ? "Experience"
+                          : el.teamName}
+                      </Subheading2>
+                    </ImageContainer>
+                  </TeamImage>
+                </Tabs.Trigger>
+
+                <Button variant="outline" color="black" type="button">
+                  LEARN MORE!
+                </Button>
+              </Stack>
+            ))}
+          </Stack>
+        </Tabs.List>
         <Stack
           wrap="wrap"
           gap="2rem"
@@ -264,6 +272,7 @@ const TeamImage = styled.div`
   width: 200px;
   height: 426px;
   flex-shrink: 0;
+  visibility: visible;
 `;
 
 const ImageContainer = styled.div`
