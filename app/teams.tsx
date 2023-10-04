@@ -136,10 +136,7 @@ export const Teams = () => {
           <Stack justifyContent="center" wrap="wrap" style={{ gap: "22px" }}>
             {teams.map((el) => (
               <Stack direction="vertical" key={el.teamName}>
-                <Tabs.Trigger
-                  style={{ visibility: "hidden" }}
-                  value={el.teamName}
-                >
+                <Tabs.Trigger asChild={true} value={el.teamName}>
                   <TeamImage>
                     <ImageContainer>
                       <Overlay />
@@ -177,10 +174,16 @@ export const Teams = () => {
                     </ImageContainer>
                   </TeamImage>
                 </Tabs.Trigger>
-
-                <Button variant="outline" color="black" type="button">
-                  LEARN MORE!
-                </Button>
+                <Tabs.Trigger value={el.teamName} asChild={true}>
+                  <Button
+                    variant="outline"
+                    color="black"
+                    type="button"
+                    value={el.teamName}
+                  >
+                    LEARN MORE!
+                  </Button>
+                </Tabs.Trigger>
               </Stack>
             ))}
           </Stack>
