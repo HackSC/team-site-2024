@@ -9,7 +9,7 @@ import {
   Button,
 } from "@hacksc/sctw-ui-kit";
 import * as Tabs from "@radix-ui/react-tabs";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -118,6 +118,13 @@ const Overlay = () => (
 export const Teams = () => {
   const defaultVal = teams[0].teamName;
   const [tabval, setTabval] = useState(defaultVal);
+  const teamRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTeam = () => {
+    if (teamRef.current !== null) {
+      teamRef.current.scrollIntoView();
+    }
+  };
 
   return (
     <Stack
@@ -180,6 +187,7 @@ export const Teams = () => {
                     color="black"
                     type="button"
                     value={el.teamName}
+                    onClick={scrollToTeam}
                   >
                     LEARN MORE!
                   </Button>
@@ -193,6 +201,7 @@ export const Teams = () => {
           gap="2rem"
           alignItems="center"
           justifyContent="center"
+          ref={teamRef}
         >
           <Tabs.List style={{ paddingTop: "100px" }}>
             <Subheading2>TEAMS</Subheading2>
@@ -236,7 +245,7 @@ export const Teams = () => {
                 <Stack direction="vertical" alignItems="start">
                   <Subheading>{el.teamName.toUpperCase()} TEAM</Subheading>
                   <BodyText>{el.description}</BodyText>
-                  <Stack direction="horizontal" wrap="wrap">
+                  {/* <Stack direction="horizontal" wrap="wrap">
                     <Image
                       src={el.img}
                       alt={`${el.teamName} image`}
@@ -249,7 +258,7 @@ export const Teams = () => {
                       width={215}
                       height={143}
                     />
-                  </Stack>
+                  </Stack> */}
                 </Stack>
               </Stack>
             </Tabs.Content>
