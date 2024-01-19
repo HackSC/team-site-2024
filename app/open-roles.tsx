@@ -20,7 +20,69 @@ export type TOpenRoles = {
 }[];
 
 export const OpenRoles = () => {
-  const openRoles: TOpenRoles = [];
+  const openRoles: TOpenRoles = [
+    {
+      team: "Engineering",
+      teamColor: Colors.Red.Redward,
+      buttonColor: "red",
+      roles: [
+        {
+          title: "Frontend Engineer",
+          applyUrl:
+            "https://hacksc23.notion.site/Frontend-Engineer-f159f50ae2764f049a4de815dc312585?pvs=4",
+        },
+      ],
+    },
+
+    {
+      team: "Product",
+      teamColor: Colors.Blue.Bloo,
+      buttonColor: "blue",
+      roles: [
+        {
+          title: "Product Designer",
+          applyUrl:
+            "https://hacksc23.notion.site/Product-Designer-3baaa4d7c19149b0887f8be0e06191b9?pvs=4",
+        },
+      ],
+    },
+    // {
+    //   team: "Hacker Experience",
+    //   teamColor: Colors.Yellow.ArthurSweater,
+    //   buttonColor: "yellow",
+    //   roles: [],
+    // },
+    {
+      team: "Operations",
+      teamColor: Colors.Red.Redward,
+      buttonColor: "red",
+      roles: [
+        {
+          title: "Operations Coordinator",
+          applyUrl:
+            "https://hacksc23.notion.site/Operations-Coordinator-f9e7ecf7f7fc49cfb7bea7444aca9568?pvs=4",
+        },
+      ],
+    },
+    // {
+    //   team: "Marketing",
+    //   teamColor: Colors.Yellow.ArthurSweater,
+    //   buttonColor: "yellow",
+    //   roles: [],
+    // },
+    {
+      team: "Partnerships",
+      teamColor: Colors.Blue.Bloo,
+      buttonColor: "blue",
+      roles: [
+        {
+          title: "Partnerships Coordinator",
+          applyUrl:
+            "https://hacksc23.notion.site/Partnerships-Coordinator-708c1e020d5044e3a35fa5d2e3455707?pvs=4",
+        },
+      ],
+    },
+  ];
 
   return (
     <Stack
