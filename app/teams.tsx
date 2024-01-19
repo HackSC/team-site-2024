@@ -3,13 +3,15 @@
 import {
   BodyText,
   Colors,
-  Heading,
+  Subheading,
   Stack,
   Subheading2,
+  Button,
 } from "@hacksc/sctw-ui-kit";
 import * as Tabs from "@radix-ui/react-tabs";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 interface Member {
   name: string;
@@ -24,6 +26,8 @@ export const teams: {
   backgroundColor: string;
   borderColor: string;
   tabChosenColor: string;
+  img: string;
+  imgFit?: string;
   lead?: Member;
   members?: Record<Role, Member[]>;
 }[] = [
@@ -35,6 +39,8 @@ export const teams: {
     backgroundColor: Colors.Red.DonatedBlood,
     borderColor: Colors.Red.Redward,
     tabChosenColor: Colors.Red.Rash,
+    img: "/teams/engineering.png",
+    imgFit: "40%",
   },
   {
     teamName: "Product",
@@ -44,6 +50,8 @@ export const teams: {
     backgroundColor: Colors.Blue.DarkBloo,
     borderColor: Colors.Blue.Bloo,
     tabChosenColor: Colors.Blue.Periwinkle,
+    img: "/teams/product.png",
+    imgFit: "55%",
   },
   {
     teamName: "Hacker Experience",
@@ -53,6 +61,7 @@ export const teams: {
     backgroundColor: Colors.Yellow.ArthurSweater,
     borderColor: Colors.Yellow.BabyFood,
     tabChosenColor: Colors.Neutral.Bagel,
+    img: "/teams/experience.png",
   },
   {
     teamName: "Operations",
@@ -62,6 +71,8 @@ export const teams: {
     backgroundColor: Colors.Red.DonatedBlood,
     borderColor: Colors.Red.Redward,
     tabChosenColor: Colors.Red.Rash,
+    img: "/teams/operations.png",
+    imgFit: "60%",
   },
   {
     teamName: "Marketing",
@@ -72,6 +83,8 @@ Marketing wants to share with the world what HackSC is all about!
     backgroundColor: Colors.Yellow.ArthurSweater,
     borderColor: Colors.Yellow.BabyFood,
     tabChosenColor: Colors.Neutral.Bagel,
+    img: "/teams/marketing.png",
+    imgFit: "75%",
   },
   {
     teamName: "Partnerships",
@@ -81,12 +94,37 @@ The Partnerships Team provides funding for our hackathon, reaching out to potent
     backgroundColor: Colors.Blue.DarkBloo,
     borderColor: Colors.Blue.Bloo,
     tabChosenColor: Colors.Blue.Periwinkle,
+    img: "/teams/partnerships.png",
   },
 ];
+
+const Overlay = () => (
+  <div
+    style={{
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      background:
+        "linear-gradient(0deg, #000 10.51%, rgba(0, 0, 0, 0.00) 31.53%)",
+      opacity: 0.9,
+      borderRadius: "28px", // as much as the image
+      transform: "scale(101%)",
+      zIndex: 0,
+      bottom: 7, // as much as the image
+    }}
+  />
+);
 
 export const Teams = () => {
   const defaultVal = teams[0].teamName;
   const [tabval, setTabval] = useState(defaultVal);
+  const teamRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTeam = () => {
+    if (teamRef.current !== null) {
+      teamRef.current.scrollIntoView();
+    }
+  };
 
   return (
     <Stack
@@ -95,20 +133,79 @@ export const Teams = () => {
       gap="4rem"
       style={{ padding: "5rem 2rem" }}
     >
-      <Heading>TEAMS</Heading>
+      <Subheading>THE SIX CORE TEAMS</Subheading>
       <Tabs.Root
         defaultValue={defaultVal}
         value={tabval}
         onValueChange={(val) => setTabval(val)}
       >
+        <Tabs.List>
+          <Stack justifyContent="center" wrap="wrap" style={{ gap: "22px" }}>
+            {teams.map((el) => (
+              <Stack direction="vertical" key={el.teamName}>
+                <Tabs.Trigger asChild={true} value={el.teamName}>
+                  <TeamImage>
+                    <ImageContainer>
+                      <Overlay />
+                      <Image
+                        src={el.img}
+                        alt={el.description}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{
+                          borderRadius: "31.831px",
+                          border: `5px solid ${el.borderColor}`,
+                          background: `lightgray -246.357px -101.052px / 417.407% 126.773% no-repeat`,
+                          overflow: "hidden",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: el.imgFit,
+                          maxWidth: "400px",
+                        }}
+                      />
+                      <Subheading2
+                        style={{
+                          position: "absolute",
+                          color: "white",
+                          bottom: -20,
+                          left: "50%",
+                          transform: "translate(-50%, -50%)",
+                        }}
+                      >
+                        {el.teamName == "Hacker Experience"
+                          ? "Experience"
+                          : el.teamName}
+                      </Subheading2>
+                    </ImageContainer>
+                  </TeamImage>
+                </Tabs.Trigger>
+                <Tabs.Trigger value={el.teamName} asChild={true}>
+                  <Button
+                    variant="outline"
+                    color="black"
+                    type="button"
+                    value={el.teamName}
+                    onClick={scrollToTeam}
+                  >
+                    LEARN MORE!
+                  </Button>
+                </Tabs.Trigger>
+              </Stack>
+            ))}
+          </Stack>
+        </Tabs.List>
         <Stack
           wrap="wrap"
           gap="2rem"
           alignItems="center"
           justifyContent="center"
+          ref={teamRef}
         >
-          <Tabs.List>
-            <StackTriggers>
+          <Tabs.List style={{ paddingTop: "100px" }}>
+            <Subheading2>TEAMS</Subheading2>
+            <StackTriggers style={{ gap: "22.5px" }}>
               {teams.map((el) => (
                 <Tabs.Trigger
                   value={el.teamName}
@@ -122,6 +219,8 @@ export const Teams = () => {
                         ? el.tabChosenColor
                         : "transparent",
                     color: el.backgroundColor,
+                    textTransform: "uppercase",
+                    // paddingBottom: "45px",
                   }}
                 >
                   <Subheading2
@@ -138,21 +237,28 @@ export const Teams = () => {
               <Stack
                 style={{
                   padding: "4rem 2rem",
-                  border: `6px solid ${el.borderColor}`,
-                  borderRadius: "10px",
-                  backgroundColor: el.backgroundColor,
                   maxWidth: "30rem",
                 }}
                 justifyContent="center"
                 alignItems="center"
               >
-                <Stack
-                  direction="vertical"
-                  alignItems="start"
-                  style={{ color: "white" }}
-                >
-                  <Subheading2>{el.teamName.toUpperCase()} TEAM</Subheading2>
+                <Stack direction="vertical" alignItems="start">
+                  <Subheading>{el.teamName.toUpperCase()} TEAM</Subheading>
                   <BodyText>{el.description}</BodyText>
+                  {/* <Stack direction="horizontal" wrap="wrap">
+                    <Image
+                      src={el.img}
+                      alt={`${el.teamName} image`}
+                      width={215}
+                      height={143}
+                    />
+                    <Image
+                      src={el.img}
+                      alt={`${el.teamName} image`}
+                      width={215}
+                      height={143}
+                    />
+                  </Stack> */}
                 </Stack>
               </Stack>
             </Tabs.Content>
@@ -172,4 +278,21 @@ const StackTriggers = styled.div`
   @media (max-width: 1200px) {
     flex-direction: row;
   }
+`;
+
+const TeamImage = styled.div`
+  width: 200px;
+  height: 426px;
+  flex-shrink: 0;
+  visibility: visible;
+`;
+
+const ImageContainer = styled.div`
+  width: 200px;
+  height: 426px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
 `;
