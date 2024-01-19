@@ -28,6 +28,8 @@ export const teams: {
   tabChosenColor: string;
   img: string;
   imgFit?: string;
+  subImg1: string;
+  subImg2: string;
   lead?: Member;
   members?: Record<Role, Member[]>;
 }[] = [
@@ -41,6 +43,8 @@ export const teams: {
     tabChosenColor: Colors.Red.Rash,
     img: "/teams/engineering.png",
     imgFit: "40%",
+    subImg1: "/teams/engineering.png",
+    subImg2: "/teams/engineering2.jpg",
   },
   {
     teamName: "Product",
@@ -52,6 +56,8 @@ export const teams: {
     tabChosenColor: Colors.Blue.Periwinkle,
     img: "/teams/product.png",
     imgFit: "55%",
+    subImg1: "/teams/product.png",
+    subImg2: "/teams/product2.jpg",
   },
   {
     teamName: "Hacker Experience",
@@ -62,6 +68,8 @@ export const teams: {
     borderColor: Colors.Yellow.BabyFood,
     tabChosenColor: Colors.Neutral.Bagel,
     img: "/teams/experience.png",
+    subImg1: "/teams/experience1.jpg",
+    subImg2: "/teams/experience2.jpg",
   },
   {
     teamName: "Operations",
@@ -73,6 +81,8 @@ export const teams: {
     tabChosenColor: Colors.Red.Rash,
     img: "/teams/operations.png",
     imgFit: "60%",
+    subImg1: "/teams/operations.png",
+    subImg2: "/teams/operations2.jpg",
   },
   {
     teamName: "Marketing",
@@ -85,6 +95,8 @@ Marketing wants to share with the world what HackSC is all about!
     tabChosenColor: Colors.Neutral.Bagel,
     img: "/teams/marketing.png",
     imgFit: "75%",
+    subImg1: "/teams/marketing.png",
+    subImg2: "/teams/marketing2.jpg",
   },
   {
     teamName: "Partnerships",
@@ -95,6 +107,8 @@ The Partnerships Team provides funding for our hackathon, reaching out to potent
     borderColor: Colors.Blue.Bloo,
     tabChosenColor: Colors.Blue.Periwinkle,
     img: "/teams/partnerships.png",
+    subImg1: "/teams/partnerships1.png",
+    subImg2: "/teams/partnerships2.jpg",
   },
 ];
 
@@ -245,20 +259,20 @@ export const Teams = () => {
                 <Stack direction="vertical" alignItems="start">
                   <Subheading>{el.teamName.toUpperCase()} TEAM</Subheading>
                   <BodyText>{el.description}</BodyText>
-                  {/* <Stack direction="horizontal" wrap="wrap">
+                  <Stack direction="horizontal" wrap="wrap">
                     <Image
-                      src={el.img}
+                      src={el.subImg1}
                       alt={`${el.teamName} image`}
                       width={215}
                       height={143}
                     />
                     <Image
-                      src={el.img}
+                      src={el.subImg2}
                       alt={`${el.teamName} image`}
                       width={215}
                       height={143}
                     />
-                  </Stack> */}
+                  </Stack>
                 </Stack>
               </Stack>
             </Tabs.Content>
