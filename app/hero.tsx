@@ -9,8 +9,24 @@ import {
 } from "@hacksc/sctw-ui-kit";
 import Image from "next/image";
 import Link from "next/link";
+import { FormEventHandler, useState } from "react";
+import { saveContactToList } from "./services/sendgrid";
 
 export const Hero = () => {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const submitEmail: FormEventHandler = (e) => {
+    e.preventDefault();
+    saveContactToList(email)
+      .then(() => {
+        setSubscribed(true);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <Stack
       wrap="wrap"
@@ -30,20 +46,34 @@ export const Hero = () => {
           </Button>
         </Link>
         <br style={{ height: "1rem" }} />
-        <Subheading2 style={{ color: Colors.Blue.Bloo }}>
-          Be the first to know of open roles
-        </Subheading2>
-        <form style={{ width: "100%" }}>
-          <Stack fill>
-            <Input
-              placeholder="Your email e.g email@usc.edu"
-              style={{ width: "100%", flex: 1 }}
-            />
-            <Button variant="solid" color="blue" type="submit" fitWidth>
-              JOIN US!
-            </Button>
-          </Stack>
-        </form>
+
+        {!subscribed && (
+          <>
+            <Subheading2 style={{ color: Colors.Blue.Bloo }}>
+              Be the first to know of open roles
+            </Subheading2>
+            <form style={{ width: "100%" }} onSubmit={submitEmail}>
+              <Stack fill>
+                <Input
+                  placeholder="Your email e.g email@usc.edu"
+                  style={{ width: "100%", flex: 1 }}
+                  type={"email"}
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+                <Button variant="solid" color="blue" type="submit" fitWidth>
+                  JOIN US!
+                </Button>
+              </Stack>
+            </form>
+          </>
+        )}
+        {subscribed && (
+          <Subheading2 style={{ color: Colors.Red.Redward }}>
+            Thank you! 🥳
+          </Subheading2>
+        )}
       </Stack>
       <Image
         src={ASSET_URLS.BEACH_HOUSE}
