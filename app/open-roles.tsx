@@ -29,7 +29,7 @@ export const OpenRoles = () => {
         {
           title: "Product Manager",
           applyUrl:
-            "https://hacksc24.notion.site/Product-Manager-3a77abd0e7f24a8cb4020bcb234de3cc",
+            "https://hacksc24.notion.site/Product-Manager-17f5825a8b5d8153852df951ffd55237?pvs=4",
         },
       ],
     },
@@ -41,7 +41,7 @@ export const OpenRoles = () => {
         {
           title: "Software Engineer",
           applyUrl:
-            "https://hacksc24.notion.site/Software-Engineer-c07b108bb9674577b0667fcedb562ce5",
+            "https://hacksc24.notion.site/Software-Engineer-17f5825a8b5d819a9a5dc7919a03747d?pvs=4",
         },
       ],
     },
@@ -53,7 +53,7 @@ export const OpenRoles = () => {
         {
           title: "Experience Coordinator",
           applyUrl:
-            "https://hacksc24.notion.site/Experience-Coordinator-2f4e9fc3773d4ebd89db9b2017a43f37",
+            "https://hacksc24.notion.site/Experience-Coordinator-17f5825a8b5d81fe8879c6b02dca0250?pvs=4",
         },
       ],
     },
@@ -65,19 +65,19 @@ export const OpenRoles = () => {
         {
           title: "Partnerships Coordinator",
           applyUrl:
-            "https://hacksc24.notion.site/Partnerships-Coordinator-1005825a8b5d800fa1f0d063cefeed22",
+            "https://hacksc24.notion.site/Partnerships-Coordinator-17f5825a8b5d8157b019da93567b28a1?pvs=4",
         },
       ],
     },
     {
-      team: "Marketing",
+      team: "Operations",
       teamColor: Colors.Yellow.ArthurSweater,
       buttonColor: "yellow",
       roles: [
         {
-          title: "Marketing Coordinator",
+          title: "Operations Coordinator",
           applyUrl:
-            "https://hacksc24.notion.site/Marketing-Coordinator-76a4e0ea7c53406fa062c6556e6d973f",
+            "https://hacksc24.notion.site/Operations-Coordinator-1835825a8b5d80439a7ae6a6b2adbc59?pvs=4",
         },
       ],
     },
@@ -89,7 +89,7 @@ export const OpenRoles = () => {
         {
           title: "Product Designer",
           applyUrl:
-            "https://hacksc24.notion.site/Product-Designer-7513aa0309824259998ac1704533a046",
+            "https://hacksc24.notion.site/Product-Designer-17f5825a8b5d810f9776fc9b078c22f5?pvs=4",
         },
       ],
     },
