@@ -106,7 +106,7 @@ export const Footer = () => (
         ))}
       </Stack>
       <BodyTextSmall style={{ color: "white", fontWeight: 300 }}>
-        © 2023. HackSC or its affiliates. All rights reserved.
+        © 2025. HackSC or its affiliates. All rights reserved.
       </BodyTextSmall>
     </SocialMediaAndAffiliatesContainer>
   </Container>
