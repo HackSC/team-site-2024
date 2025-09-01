@@ -4,7 +4,6 @@ import {
   BodyTextLarge,
   Button,
   Colors,
-  Heading,
   Stack,
   Subheading,
 } from "@hacksc/sctw-ui-kit";
