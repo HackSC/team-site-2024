@@ -29,7 +29,7 @@ export const OpenRoles = () => {
         {
           title: "Product Manager",
           applyUrl:
-            "https://hacksc24.notion.site/Product-Manager-17f5825a8b5d8153852df951ffd55237?pvs=4",
+            "https://hacksc25.notion.site/Product-Manager-25a5825a8b5d81d3838bf4ea20952c64",
         },
       ],
     },
@@ -41,7 +41,7 @@ export const OpenRoles = () => {
         {
           title: "Software Engineer",
           applyUrl:
-            "https://hacksc24.notion.site/Software-Engineer-17f5825a8b5d819a9a5dc7919a03747d?pvs=4",
+            "https://hacksc25.notion.site/Software-Engineer-25a5825a8b5d810f8b21f75298b54226",
         },
       ],
     },
@@ -53,7 +53,7 @@ export const OpenRoles = () => {
         {
           title: "Experience Coordinator",
           applyUrl:
-            "https://hacksc24.notion.site/Experience-Coordinator-17f5825a8b5d81fe8879c6b02dca0250?pvs=4",
+            "https://hacksc25.notion.site/Experience-Coordinator-25a5825a8b5d811ba0f7e4c70b9110d0",
         },
       ],
     },
@@ -65,7 +65,7 @@ export const OpenRoles = () => {
         {
           title: "Partnerships Coordinator",
           applyUrl:
-            "https://hacksc24.notion.site/Partnerships-Coordinator-17f5825a8b5d8157b019da93567b28a1?pvs=4",
+            "https://hacksc25.notion.site/Partnerships-Coordinator-25a5825a8b5d81979d26e260d062d895",
         },
       ],
     },
@@ -77,7 +77,7 @@ export const OpenRoles = () => {
         {
           title: "Operations Coordinator",
           applyUrl:
-            "https://hacksc24.notion.site/Operations-Coordinator-1835825a8b5d80439a7ae6a6b2adbc59?pvs=4",
+            "https://hacksc25.notion.site/Operations-Coordinator-25a5825a8b5d8153bfa9fff500a22b11",
         },
       ],
     },
@@ -89,7 +89,19 @@ export const OpenRoles = () => {
         {
           title: "Product Designer",
           applyUrl:
-            "https://hacksc24.notion.site/Product-Designer-17f5825a8b5d810f9776fc9b078c22f5?pvs=4",
+            "https://hacksc25.notion.site/Product-Designer-25a5825a8b5d814c9e17d0efea72b56a",
+        },
+      ],
+    },
+    {
+      team: "Marketing",
+      teamColor: Colors.Yellow.ArthurSweater,
+      buttonColor: "yellow",
+      roles: [
+        {
+          title: "Marketing Coordinator",
+          applyUrl:
+            "https://hacksc25.notion.site/Marketing-2615825a8b5d80938a28d011f1b65bde",
         },
       ],
     },
